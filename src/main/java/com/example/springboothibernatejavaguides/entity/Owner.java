@@ -19,7 +19,7 @@ public class Owner {
     private String lastName;
     @Column(name = "age")
     private int age;
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "owner", referencedColumnName = "id")
     List<Pet> pets = new ArrayList<>();
 

@@ -7,6 +7,9 @@ import jakarta.persistence.*;
 @Table(name = "pets")
 public class Pet {
 
+    @ManyToOne
+    @JoinColumn(name = "owner", referencedColumnName = "id")
+    private Owner owner;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -20,8 +23,9 @@ public class Pet {
     public Pet() {
     }
 
-    public Pet(String name, int age, String species) {
+    public Pet(Owner owner, String name, int age, String species) {
         super();
+        this.owner = owner;
         this.name = name;
         this.age = age;
         this.species = species;
@@ -57,6 +61,14 @@ public class Pet {
 
     public void setSpecies(String species) {
         this.species = species;
+    }
+
+    public Owner getOwner() {
+        return owner;
+    }
+
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 }
 
