@@ -1,0 +1,62 @@
+package com.example.springboothibernatejavaguides.entity;
+
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "pets")
+public class Pet {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "age")
+    private int age;
+    @Column(name = "species")
+    private String species;
+
+    public Pet() {
+    }
+
+    public Pet(String name, int age, String species) {
+        super();
+        this.name = name;
+        this.age = age;
+        this.species = species;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String text) {
+        this.name = text;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(String species) {
+        this.species = species;
+    }
+}
+

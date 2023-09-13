@@ -1,8 +1,8 @@
 package com.example.springboothibernatejavaguides;
 
-import com.example.springboothibernatejavaguides.entity.Comment;
-import com.example.springboothibernatejavaguides.entity.Post;
-import com.example.springboothibernatejavaguides.entity.repository.PostRepository;
+import com.example.springboothibernatejavaguides.entity.Owner;
+import com.example.springboothibernatejavaguides.entity.Pet;
+import com.example.springboothibernatejavaguides.entity.repository.OwnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -16,21 +16,19 @@ public class SpringbootHibernateJavaguidesApplication implements CommandLineRunn
     }
 
     @Autowired
-    private PostRepository postRepository;
+    private OwnerRepository ownerRepository;
 
     @Override
     public void run(String... args) throws Exception {
 
-        Post post = new Post("one to many mapping using JPA and hibernate", "one to many mapping using JPA and hibernate");
+        Owner owner = new Owner("Lucy");
 
-        Comment comment1 = new Comment("Very useful");
-        Comment comment2 = new Comment("Informative");
-        Comment comment3 = new Comment("Great post");
+        Pet pet1 = new Pet("Bobby", 2, "dog");
+        Pet pet2 = new Pet("Tommy", 3, "cat");
 
-        post.getComments().add(comment1);
-        post.getComments().add(comment2);
-        post.getComments().add(comment3);
+        owner.getPets().add(pet1);
+        owner.getPets().add(pet2);
 
-        this.postRepository.save(post);
+        this.ownerRepository.save(owner);
     }
 }
