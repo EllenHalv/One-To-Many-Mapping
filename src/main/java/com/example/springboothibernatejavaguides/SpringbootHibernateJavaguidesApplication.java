@@ -21,14 +21,30 @@ public class SpringbootHibernateJavaguidesApplication implements CommandLineRunn
     @Override
     public void run(String... args) throws Exception {
 
-        Owner owner = new Owner("Lucy");
+        Owner owner1 = new Owner("Bella", "Johnson", 19);
 
-        Pet pet1 = new Pet("Bobby", 2, "dog");
-        Pet pet2 = new Pet("Tommy", 3, "cat");
+        Pet pet1 = new Pet("Karla", 2, "bunny");
+        Pet pet2 = new Pet("Brad", 3, "lizard");
 
-        owner.getPets().add(pet1);
-        owner.getPets().add(pet2);
+        owner1.getPets().add(pet1);
+        owner1.getPets().add(pet2);
 
-        this.ownerRepository.save(owner);
+        this.ownerRepository.save(owner1);
+
+        /*
+        RADERA
+        .delete(Entity klass)
+        .deleteAll()
+        .deleteById(Long)
+
+        HITTA
+        .exist(entity klass)
+        .existById(Long)
+
+        HÄMTA
+        .findOne (Entity klass)
+        .findAll()
+        .findById(Long)
+        */
     }
 }
